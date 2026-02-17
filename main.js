@@ -20,10 +20,19 @@ const displayProducts = (products) => {
     productDiv.innerHTML = `
    <div class="bg-white rounded-xl shadow-sm p-4 hover:shadow-lg transition">
      <img src="${product.image}" class="w-full h-60 object-cover rounded-lg mb-4" />
+     <div class="flex justify-between items-center mb-2">
+          <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">
+            ${product.category}
+          </span>
+          <span class="text-xs text-gray-500 flex items-center gap-1">
+            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+            ${product.rating.rate} (${product.rating.count})
+          </span>
+        </div>
      <h4 class="font-semibold mb-2">${product.title}</h4>
      <p class="text-indigo-600 font-bold mb-4">$${product.price}</p>
      <div class="flex justify-between">
-      <button class="border px-4 py-2 rounded-lg text-sm">
+      <button onclick="openModal(${product.id})" class="border px-4 py-2 rounded-lg text-sm">
        <i class="fa-solid fa-eye mr-1"></i> Details
       </button>
       <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm">
@@ -113,10 +122,19 @@ const catWiseProducts = (products) => {
     productDiv.innerHTML = `
    <div class="bg-white rounded-xl shadow-sm p-4 hover:shadow-lg transition">
      <img src="${product.image}" class="w-full h-60 object-cover rounded-lg mb-4" />
+     <div class="flex justify-between items-center mb-2">
+          <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">
+            ${product.category}
+          </span>
+          <span class="text-xs text-gray-500 flex items-center gap-1">
+            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+            ${product.rating.rate} (${product.rating.count})
+          </span>
+        </div>
      <h4 class="font-semibold mb-2">${product.title}</h4>
      <p class="text-indigo-600 font-bold mb-4">$${product.price}</p>
      <div class="flex justify-between">
-      <button class="border px-4 py-2 rounded-lg text-sm">
+      <button onclick="openModal(${product.id})" class="border px-4 py-2 rounded-lg text-sm">
        <i class="fa-solid fa-eye mr-1"></i> Details
       </button>
       <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm">
@@ -130,5 +148,40 @@ const catWiseProducts = (products) => {
   });
 
 }
+
+//product details modal
+const modal = document.getElementById("productModal");
+
+const openModal = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(product => {
+
+      document.getElementById("modalTitle").innerText = product.title;
+      document.getElementById("modalPrice").innerText = `$${product.price}`;
+      document.getElementById("modalRating").innerText =
+        `${product.rating.rate} (${product.rating.count})`;
+      document.getElementById("modalDescription").innerText =
+        product.description;
+      document.getElementById("modalImage").src = product.image;
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    });
+};
+
+const closeModal = () => {
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+};
+
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
 loadProducts();
 filterProducts("all");

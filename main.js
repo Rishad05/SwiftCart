@@ -29,7 +29,7 @@ const displayProducts = (products) => {
             ${product.rating.rate} (${product.rating.count})
           </span>
         </div>
-     <h4 class="font-semibold mb-2">${product.title}</h4>
+     <h4 class="font-semibold mb-2 truncate">${product.title}</h4>
      <p class="text-indigo-600 font-bold mb-4">$${product.price}</p>
      <div class="flex justify-between">
       <button onclick="openModal(${product.id})" class="border px-4 py-2 rounded-lg text-sm">
@@ -131,7 +131,7 @@ const catWiseProducts = (products) => {
             ${product.rating.rate} (${product.rating.count})
           </span>
         </div>
-     <h4 class="font-semibold mb-2">${product.title}</h4>
+     <h4 class="font-semibold mb-2 truncate">${product.title}</h4>
      <p class="text-indigo-600 font-bold mb-4">$${product.price}</p>
      <div class="flex justify-between">
       <button onclick="openModal(${product.id})" class="border px-4 py-2 rounded-lg text-sm">
@@ -184,4 +184,3 @@ modal.addEventListener("click", function (e) {
 });
 
 loadProducts();
-filterProducts("all");

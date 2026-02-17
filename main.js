@@ -59,8 +59,8 @@ const displayCategories = (categories) => {
 
     button.className = `capitalize ${
       category === "all"
-        ? "bg-indigo-600 text-white"
-        : "bg-white text-indigo-600"
+        ? "bg-indigo-600 text-white hover:bg-indigo-700 hover:text-white"
+        : "bg-white text-indigo-600 hover:bg-indigo-700 hover:text-white"
     } px-4 py-2 rounded-lg text-sm hover:bg-indigo-700`;
 
     button.textContent = category === "all" ? "All" : category;
@@ -80,7 +80,7 @@ allCategories();
 // category filter
 const filterProducts = (category) => {
  const url = `https://fakestoreapi.com/products/category/${category}`;
- console.log("the url is", url);
+
  fetch(url)
   .then((res) => res.json())
   .then((data) => {

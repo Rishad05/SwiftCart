@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>SwiftCart</title>
+
+ <!-- Tailwind -->
+ <script src="https://cdn.tailwindcss.com"></script>
+
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+ <!-- ================= NAVBAR ================= -->
+ <header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+
+   <!-- Logo -->
+   <h1 class="text-2xl font-bold text-indigo-600">SwiftCart</h1>
+
+   <!-- Desktop Menu -->
+   <nav class="hidden md:flex items-center space-x-8 font-medium">
+    <a href="#" class="text-indigo-600">Home</a>
+    <a href="#" class="hover:text-indigo-600">Products</a>
+    <a href="#" class="hover:text-indigo-600">About</a>
+    <a href="#" class="hover:text-indigo-600">Contact</a>
+   </nav>
+
+   <!-- Right Side -->
+   <div class="flex items-center space-x-6">
+
+    <!-- Cart -->
+    <div class="relative cursor-pointer">
+     <i class="fa-solid fa-cart-shopping text-xl text-gray-700 hover:text-indigo-600"></i>
+     <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs px-1.5 py-0.5 rounded-full">
+      2
+     </span>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn" class="md:hidden">
+     <i class="fa-solid fa-bars text-xl text-gray-700"></i>
+    </button>
+   </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+   <div class="px-6 py-4 space-y-4 font-medium">
+    <a href="./index.html" class="block hover:text-indigo-600">Home</a>
+    <a href="./products.html" class="block text-indigo-600">Products</a>
+    <a href="#" class="block hover:text-indigo-600">About</a>
+    <a href="#" class="block hover:text-indigo-600">Contact</a>
+   </div>
+  </div>
+ </header>
+ <!-- ================= PRODUCTS PAGE ================= -->
+ <section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+
+   <!-- Title -->
+   <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Products</h2>
+
+    <!-- Filter Pills -->
+    <div class="flex flex-wrap justify-center gap-3" id="categoriesContainer">
+     
+     
+    </div>
+   </div>
+
+   <!-- Products Grid -->
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="productsContainer">
+
+
+   </div>
+  </div>
+ </section>
+ <!-- ================= FOOTER ================= -->
+ <footer class="bg-[#111827] text-gray-400 pt-14 pb-6">
+
+  <div class="container mx-auto px-6">
+
+   <!-- Top Grid -->
+   <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div>
+     <h4 class="text-xl font-bold text-indigo-500 mb-4">
+      SwiftCart
+     </h4>
+     <p class="text-sm leading-6">
+      Your one-stop shop for all your fashion and lifestyle needs.
+      Quality products, fast delivery, and excellent support.
+     </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+     <h5 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+      Quick Links
+     </h5>
+     <ul class="space-y-3 text-sm">
+      <li><a href="#" class="hover:text-white transition">Home</a></li>
+      <li><a href="#" class="hover:text-white transition">Products</a></li>
+      <li><a href="#" class="hover:text-white transition">About</a></li>
+      <li><a href="#" class="hover:text-white transition">Contact</a></li>
+     </ul>
+    </div>
+
+    <!-- Support -->
+    <div>
+     <h5 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+      Support
+     </h5>
+     <ul class="space-y-3 text-sm">
+      <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+      <li><a href="#" class="hover:text-white transition">Shipping</a></li>
+      <li><a href="#" class="hover:text-white transition">Returns</a></li>
+      <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+     </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+     <h5 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+      Subscribe To Our Newsletter
+     </h5>
+     <p class="text-sm mb-4">
+      The latest news, articles, and resources, sent to your inbox weekly.
+     </p>
+
+     <div class="flex">
+      <input type="email" placeholder="Enter your email"
+       class="w-full px-4 py-2 rounded-l-md bg-gray-800 border border-gray-700 text-sm focus:outline-none focus:border-indigo-500" />
+      <button class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md text-white text-sm">
+       Subscribe
+      </button>
+     </div>
+    </div>
+
+   </div>
+
+   <!-- Divider -->
+   <div class="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+
+    <!-- Copyright -->
+    <p class="text-sm">
+     © 2025 SwiftCart, Inc. All rights reserved.
+    </p>
+
+    <!-- Social Icons -->
+    <div class="flex space-x-5 mt-4 md:mt-0 text-gray-400">
+     <i class="fa-brands fa-facebook-f hover:text-white cursor-pointer transition"></i>
+     <i class="fa-brands fa-twitter hover:text-white cursor-pointer transition"></i>
+     <i class="fa-brands fa-instagram hover:text-white cursor-pointer transition"></i>
+     <i class="fa-brands fa-linkedin-in hover:text-white cursor-pointer transition"></i>
+     <i class="fa-regular fa-envelope hover:text-white cursor-pointer transition"></i>
+    </div>
+
+   </div>
+
+  </div>
+ </footer>
+
+
+ <!-- ================= SCRIPT ================= -->
+  <script src="./main.js"></script>
+ <script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  menuBtn.addEventListener("click", () => {
+   mobileMenu.classList.toggle("hidden");
+  });
+ </script>
+
+</body>
+
+</html>
